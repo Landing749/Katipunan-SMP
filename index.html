@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katipunan SMP — Forge Your Story Together</title>
+  <meta name="description" content="A Filipino-inspired Minecraft survival world built by its community. Join Katipunan SMP today!">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Press Start 2P for headers only -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <!-- MinecraftCHMC for all body text -->
+  <link href="https://fonts.cdnfonts.com/css/minecraftchmc" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ===================== ANNOUNCEMENT BANNER ===================== -->
+  <div id="announcement-banner" class="announcement-banner hidden">
+    <div class="announcement-inner">
+      <span class="ann-icon">📢</span>
+      <span id="announcement-text">Loading...</span>
+      <button class="ann-close" onclick="closeBanner('announcement-banner')" aria-label="Close">✕</button>
+    </div>
+  </div>
+
+  <!-- ===================== EVENT COUNTDOWN BANNER ===================== -->
+  <div id="event-banner" class="event-banner hidden">
+    <div class="event-banner-inner">
+      <span class="ev-icon">⚔️</span>
+      <span class="ev-label">Upcoming Event:</span>
+      <strong id="event-banner-name"></strong>
+      <span class="ev-sep">—</span>
+      <span id="event-countdown" class="ev-countdown"></span>
+      <a href="#events" class="ev-btn">See Details</a>
+      <button class="ann-close" onclick="closeBanner('event-banner')" aria-label="Close">✕</button>
+    </div>
+  </div>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <img src="KatipunanSMP_Primary-Logo.webp" alt="Katipunan SMP Logo" class="nav-logo-img">
+        <span class="nav-brand-text">Katipunan <em>SMP</em></span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#events" class="nav-link">Events</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#community" class="nav-link">Community</a>
+        <a href="#" class="btn-nav-play mobile-play-btn">▶ Play Now</a>
+      </div>
+      <div class="nav-actions">
+        <a href="#" class="btn-nav-play">▶ Play Now</a>
+        <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO SECTION ===================== -->
+  <section class="hero" id="hero">
+
+    <!-- Sky layer -->
+    <div class="hero-sky" id="hero-sky">
+      <div class="sky-gradient"></div>
+      <!-- Pixel clouds -->
+      <div class="pixel-cloud c1" aria-hidden="true">
+        <div class="cloud-body"></div><div class="cloud-top"></div>
+      </div>
+      <div class="pixel-cloud c2" aria-hidden="true">
+        <div class="cloud-body"></div><div class="cloud-top"></div>
+      </div>
+      <div class="pixel-cloud c3" aria-hidden="true">
+        <div class="cloud-body"></div><div class="cloud-top"></div>
+      </div>
+      <div class="pixel-cloud c4" aria-hidden="true">
+        <div class="cloud-body"></div><div class="cloud-top"></div>
+      </div>
+      <div class="pixel-cloud c5" aria-hidden="true">
+        <div class="cloud-body"></div><div class="cloud-top"></div>
+      </div>
+      <!-- Stars -->
+      <div class="stars-layer" id="stars-layer" aria-hidden="true"></div>
+    </div>
+
+    <!-- Landscape layers (parallax) -->
+    <div class="landscape-wrap" aria-hidden="true">
+      <svg class="landscape-mountains layer-parallax" data-depth="0.15" viewBox="0 0 1440 260" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1440" height="260" fill="none"/>
+        <polygon points="0,260 0,200 40,200 40,160 80,160 80,120 120,120 120,80 160,80 160,40 200,40 200,0 240,0 240,40 280,40 280,80 320,80 320,120 360,120 360,80 400,80 400,40 440,40 440,0 480,0 480,40 520,40 520,80 560,80 560,120 600,120 600,80 640,80 640,40 680,40 680,20 720,20 720,40 760,40 760,80 800,80 800,120 840,120 840,80 880,80 880,40 920,40 920,80 960,80 960,120 1000,120 1000,80 1040,80 1040,40 1080,40 1080,80 1120,80 1120,120 1160,120 1160,160 1200,160 1200,200 1240,200 1280,200 1280,160 1320,160 1360,160 1360,200 1440,200 1440,260" fill="#5a7a9e" opacity="0.7"/>
+      </svg>
+      <svg class="landscape-hills layer-parallax" data-depth="0.3" viewBox="0 0 1440 200" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="0,200 0,140 40,140 40,100 80,100 80,80 120,80 120,60 160,60 160,40 200,40 200,60 240,60 240,100 280,100 280,120 320,120 320,100 360,100 360,80 400,80 400,60 440,60 440,80 480,80 480,100 520,100 520,80 560,80 560,60 600,60 600,40 640,40 640,60 680,60 680,80 720,80 720,100 760,100 760,120 800,120 800,100 840,100 840,80 880,80 880,60 920,60 920,80 960,80 960,100 1000,100 1000,120 1040,120 1040,100 1080,100 1080,80 1120,80 1120,100 1160,100 1160,120 1200,120 1200,140 1240,140 1240,120 1280,120 1320,120 1360,120 1360,140 1440,140 1440,200" fill="#3d6b2e"/>
+      </svg>
+      <div class="landscape-trees layer-parallax" data-depth="0.5" aria-hidden="true">
+        <div class="tree t1"></div><div class="tree t2"></div><div class="tree t3"></div>
+        <div class="tree t4"></div><div class="tree t5"></div><div class="tree t6"></div>
+        <div class="tree t7"></div><div class="tree t8"></div><div class="tree t9"></div>
+      </div>
+      <div class="landscape-ground" aria-hidden="true">
+        <div class="ground-grass"></div>
+        <div class="ground-dirt"></div>
+      </div>
+    </div>
+
+    <!-- Particles canvas -->
+    <canvas id="particles" class="particles-canvas" aria-hidden="true"></canvas>
+
+    <!-- Hero main content -->
+    <div class="hero-content">
+      <div class="hero-logo-wrap">
+        <img src="KatipunanSMP_Primary-Logo.webp" alt="Katipunan SMP" class="hero-logo" id="hero-logo">
+      </div>
+      <h1 class="hero-heading">Forge Your Story Together.</h1>
+      <p class="hero-tagline">A Filipino-inspired Minecraft survival world built by its community.</p>
+      <div class="hero-btns">
+        <a href="#" class="pixel-btn btn-gold">▶ Play Now</a>
+        <a href="#" class="pixel-btn btn-blue">💬 Join Discord</a>
+        <a href="#events" class="pixel-btn btn-green">⚔️ View Events</a>
+        <a href="#" class="pixel-btn btn-brown">🗺️ Dynmap</a>
+      </div>
+
+      <!-- Server Status Panel -->
+      <div class="server-panel" id="server-panel">
+        <div class="server-panel-header">
+          <div class="status-indicator" id="status-indicator">
+            <span class="status-dot" id="status-dot"></span>
+            <span id="status-text">Checking status...</span>
+          </div>
+          <span class="server-ip">play.katipunansmp.net</span>
+        </div>
+        <div class="server-panel-stats">
+          <div class="stat-pill">
+            <span class="stat-label">Version</span>
+            <span class="stat-val" id="stat-version">1.21.x</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-label">Players</span>
+            <span class="stat-val" id="stat-players">—</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-label">Crossplay</span>
+            <span class="stat-val">Java + Bedrock</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-label">Mode</span>
+            <span class="stat-val">Survival SMP</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="scroll-hint" aria-hidden="true">
+      <div class="scroll-arrow"></div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT SECTION ===================== -->
+  <section class="section about-section" id="about">
+    <div class="section-wrap">
+      <!-- Pixel grass divider at top -->
+      <div class="pixel-divider-top" aria-hidden="true"></div>
+
+      <div class="about-grid">
+        <div class="about-text reveal-left">
+          <div class="section-eyebrow">✦ Our World ✦</div>
+          <h2 class="section-title">What Is Katipunan SMP?</h2>
+          <p>Katipunan SMP is more than a Minecraft server — it's a <strong>living world shaped entirely by its players.</strong> Born from the spirit of <em>bayanihan</em> and Filipino camaraderie, our community thrives on creativity, adventure, and shared history.</p>
+          <p>From building thriving towns to forging powerful alliances and nation-states, every decision you make writes the next chapter of our ever-evolving world. Forge friendships. Build empires. Create history.</p>
+          <div class="tag-cloud">
+            <span class="pixel-tag">⛏️ Semi-Vanilla</span>
+            <span class="pixel-tag">🏘️ Player Towns</span>
+            <span class="pixel-tag">💰 Economy</span>
+            <span class="pixel-tag">⚔️ Nations</span>
+            <span class="pixel-tag">🎉 Events</span>
+            <span class="pixel-tag">🌏 Community</span>
+            <span class="pixel-tag">🗺️ Exploration</span>
+            <span class="pixel-tag">🏆 Quests</span>
+          </div>
+          <a href="#" onclick="window.copyIP()" class="pixel-btn btn-gold mt-4">Copy Server IP</a>
+        </div>
+        <div class="about-visual reveal-right">
+          <!-- Pixel art scene box -->
+          <div class="pixel-scene-box" aria-hidden="true">
+            <div class="psb-sky"></div>
+            <div class="psb-sun"></div>
+            <div class="psb-cloud psbc1"></div>
+            <div class="psb-cloud psbc2"></div>
+            <div class="psb-mountain"></div>
+            <div class="psb-ground"></div>
+            <div class="psb-house"></div>
+            <div class="psb-tree psbt1"></div>
+            <div class="psb-tree psbt2"></div>
+            <div class="psb-fence"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FEATURES SECTION ===================== -->
+  <section class="section features-section" id="features">
+    <div class="section-wrap">
+      <div class="section-header centered">
+        <div class="section-eyebrow">✦ What Awaits ✦</div>
+        <h2 class="section-title">Features</h2>
+        <p class="section-sub">Everything you need for the ultimate Minecraft experience.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feat-icon">⛏️</div>
+          <h3>Survival SMP</h3>
+          <p>Classic Minecraft survival enhanced with community features, player progression, and deep world lore.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feat-icon">💰</div>
+          <h3>Player Economy</h3>
+          <p>Trade, build shops, and participate in a fully player-driven market and economy system.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feat-icon">🏰</div>
+          <h3>Nations & Alliances</h3>
+          <p>Create towns, kingdoms, and forge political alliances with other players across the map.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feat-icon">🎉</div>
+          <h3>Community Events</h3>
+          <p>Weekly and seasonal events — build contests, PvP tournaments, boss raids, and much more.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feat-icon">🛡️</div>
+          <h3>Land Claiming</h3>
+          <p>Protect your builds and grow your community's territory safely and securely.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feat-icon">🗺️</div>
+          <h3>Quests & Lore</h3>
+          <p>Explore hidden locations, discover server lore, and embark on adventures across the world.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feat-icon">🤝</div>
+          <h3>Friendly Community</h3>
+          <p>A welcoming environment where every player matters and teamwork is always celebrated.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feat-icon">🎨</div>
+          <h3>Cosmetics</h3>
+          <p>Earn visual rewards and cosmetics through gameplay — no pay-to-win mechanics ever.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EVENTS SECTION ===================== -->
+  <section class="section events-section" id="events">
+    <div class="section-wrap">
+      <!-- Announcement ticker -->
+      <div class="ticker-bar" id="ticker-bar">
+        <span class="ticker-live">📢 NEWS</span>
+        <div class="ticker-track" id="ticker-track">
+          <span class="ticker-item" id="ticker-inner">Loading announcements...</span>
+        </div>
+      </div>
+
+      <div class="section-header centered">
+        <div class="section-eyebrow">✦ Always Something On ✦</div>
+        <h2 class="section-title">Upcoming Events</h2>
+        <p class="section-sub">There is always something happening in Katipunan SMP.</p>
+      </div>
+
+      <div id="events-grid" class="events-grid">
+        <!-- Events injected by Firebase -->
+        <div class="events-empty" id="events-loading">
+          <div class="pixel-spinner" aria-label="Loading"></div>
+          <p>Loading events from the server...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY SECTION (hidden until images load) ===================== -->
+  <section class="section gallery-section" id="gallery" style="display:none">
+    <div class="section-wrap">
+      <div class="section-header centered">
+        <div class="section-eyebrow">✦ Built By Players ✦</div>
+        <h2 class="section-title">Community Gallery</h2>
+        <p class="section-sub">A world shaped by imagination and hard work.</p>
+      </div>
+
+      <!-- Carousel -->
+      <div class="gallery-carousel" id="gallery-carousel">
+        <div class="carousel-wrapper">
+          <button class="carousel-btn carousel-prev" id="carousel-prev" aria-label="Previous">◀</button>
+          <div class="carousel-viewport">
+            <div class="carousel-track" id="carousel-track"></div>
+          </div>
+          <button class="carousel-btn carousel-next" id="carousel-next" aria-label="Next">▶</button>
+        </div>
+        <div class="carousel-dots" id="carousel-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DISCORD SECTION ===================== -->
+  <section class="section discord-section" id="community">
+    <div class="section-wrap">
+      <div class="discord-card">
+        <div class="discord-deco" aria-hidden="true">
+          <div class="disc-pixel-art"></div>
+        </div>
+        <div class="discord-body">
+          <div class="section-eyebrow">✦ Our Community ✦</div>
+          <h2 class="section-title">Join the Katipunan</h2>
+          <p class="discord-desc">Over <strong>500+ adventurers</strong> already building the world. Get server updates, join events, and find your barangay.</p>
+          <div class="discord-stats-row">
+            <div class="disc-stat">
+              <span class="disc-num">500+</span>
+              <span class="disc-lbl">Members</span>
+            </div>
+            <div class="disc-stat">
+              <span class="disc-num">Weekly</span>
+              <span class="disc-lbl">Events</span>
+            </div>
+            <div class="disc-stat">
+              <span class="disc-num">Active</span>
+              <span class="disc-lbl">Daily</span>
+            </div>
+          </div>
+          <div class="discord-btns">
+            <a href="#" class="pixel-btn btn-discord">💬 Join Our Discord</a>
+            <a href="#" class="pixel-btn btn-outline">📺 YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-terrain" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="0,80 0,40 40,40 40,20 80,20 80,0 120,0 120,20 160,20 160,40 200,40 200,20 240,20 240,0 280,0 280,20 320,20 320,40 360,40 360,20 400,20 400,0 440,0 440,20 480,20 480,40 520,40 520,20 560,20 560,0 600,0 600,20 640,20 640,40 680,40 680,20 720,20 720,0 760,0 760,20 800,20 800,40 840,40 840,20 880,20 880,0 920,0 920,20 960,20 960,40 1000,40 1000,20 1040,20 1040,0 1080,0 1080,20 1120,20 1120,40 1160,40 1160,20 1200,20 1200,0 1240,0 1240,20 1280,20 1280,40 1320,40 1320,20 1360,20 1360,40 1440,40 1440,80" fill="#6EC24A"/>
+        <polygon points="0,80 0,60 1440,60 1440,80" fill="#5A2D0C"/>
+      </svg>
+    </div>
+    <div class="footer-body">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="KatipunanSMP_Primary-Logo.webp" alt="Katipunan SMP" class="footer-logo">
+          <p class="footer-tagline">A living Minecraft world shaped by its players.</p>
+          <div class="footer-ip-badge">
+            <span class="ip-label">Server IP</span>
+            <span class="ip-val" id="footer-ip" onclick="copyIP(this)" title="Click to copy">play.katipunansmp.net</span>
+          </div>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Navigate</h4>
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#events">Events</a>
+            <a href="#gallery">Gallery</a>
+          </div>
+          <div class="footer-col">
+            <h4>Play</h4>
+            <a href="#">How to Join</a>
+            <a href="#">Vote For Us</a>
+            <a href="#">Server Store</a>
+            <a href="#">Server Wiki</a>
+          </div>
+          <div class="footer-col">
+            <h4>Socials</h4>
+            <a href="#">Discord</a>
+            <a href="#">Facebook</a>
+            <a href="#">YouTube</a>
+            <a href="#">TikTok</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Katipunan SMP · Made with ❤️ by the community · Not affiliated with Mojang</p>
+        <a href="admin.html" class="admin-link">⚙ Admin</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Copy IP Toast -->
+  <div id="copy-toast" class="copy-toast" aria-live="polite">✓ Copied to clipboard!</div>
+
+  <!-- Firebase & Main Script -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
